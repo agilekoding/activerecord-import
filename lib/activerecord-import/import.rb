@@ -173,6 +173,7 @@ class ActiveRecord::Base
         else
           models = args.first
           column_names = self.column_names.dup
+          column_names.delete(primary_key)
         end
         
         array_of_attributes = models.map do |model|
@@ -298,7 +299,7 @@ class ActiveRecord::Base
         my_values = arr.each_with_index.map do |val,j|
           column = columns[j]
           if !sequence_name.blank? && column.name == primary_key && val.nil?
-             connection.next_value_for_sequence(sequence_name)
+            connection.next_value_for_sequence(sequence_name)
           else
             connection.quote(column.type_cast(val), column)
           end

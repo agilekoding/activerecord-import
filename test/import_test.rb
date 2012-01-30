@@ -18,7 +18,7 @@ describe "#import" do
       Topic.import %w(title author_name), []
     end
   end
-
+  
   context "with :validation option" do
     let(:columns) { %w(title author_name) }
     let(:valid_values) { [[ "LDAP", "Jerry Carter"], ["Rails Recipes", "Chad Fowler"]] }
@@ -78,7 +78,7 @@ describe "#import" do
     
     context "synchronizing on new records with explicit conditions" do
       let(:new_topics) { Build(3, :topics) }
-
+  
       it "reloads data for existing in-memory instances" do
         Topic.import(new_topics, :synchronize => new_topics, :synchronize_key => [:title] )
         assert new_topics.all?(&:new_record?), "Records should have been reloaded"
@@ -232,7 +232,7 @@ describe "#import" do
       assert_equal "superx", Group.first.order
     end
   end
-
+  
   context "importing a datetime field" do
     it "should import a date with YYYY/MM/DD format just fine" do
       Topic.import [:author_name, :title, :last_read], [["Bob Jones", "Topic 2", "2010/05/14"]]
