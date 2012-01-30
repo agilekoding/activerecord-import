@@ -5,7 +5,7 @@ module ActiveRecord::Import::SqlserverAdapter
   # Returns the maximum number of bytes that the server will allow
   # in a single packet
   def max_allowed_packet # :nodoc:
-    5000
+    65536.to_i
   end
   
   # Returns a generated ON DUPLICATE KEY UPDATE statement given the passed
