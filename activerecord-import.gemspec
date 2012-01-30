@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = "activerecord-import"
-  s.version     = '0.2.9'
+  s.version     = '0.2.10'
   s.platform    = Gem::Platform::RUBY  
   s.summary     = "activerecord-import is a library for bulk inserting data using ActiveRecord."
   s.email       = "zach.dennis@gmail.com"
